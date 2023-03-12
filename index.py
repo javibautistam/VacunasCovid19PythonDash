@@ -7,10 +7,7 @@ from dash.dependencies import Input, Output
 
 
 df = pd.read_csv("Covid19VacunasAgrupadas.csv")
-'''print(df)
-print(df.vacuna_nombre.nunique())
-print(df.vacuna_nombre.unique())
-'''
+
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
@@ -58,30 +55,40 @@ app.layout = html.Div([
 def update_graph(value):
 
     if value == 'primera_dosis_cantidad':
+        sorted_df = df.sort_values('primera_dosis_cantidad', ascending=False)
         fig = px.bar(
-            data_frame = df,
+            data_frame = sorted_df,
             x = 'jurisdiccion_nombre',
-            y = 'primera_dosis_cantidad')
+            y = 'primera_dosis_cantidad',
+            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
     elif value == 'dosis_adicional_cantidad':
+        sorted_df = df.sort_values('dosis_adicional_cantidad', ascending=False)
         fig = px.bar(
-            data_frame = df,
+            data_frame = sorted_df,
             x = 'jurisdiccion_nombre',
-            y = 'dosis_adicional_cantidad')
+            y = 'dosis_adicional_cantidad',
+            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
     elif value == 'dosis_refuerzo_cantidad':
+            sorted_df = df.sort_values('dosis_refuerzo_cantidad', ascending=False)
             fig = px.bar(
-                data_frame = df,
+                data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
-                y = 'dosis_refuerzo_cantidad')
+                y = 'dosis_refuerzo_cantidad',
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
     elif value == 'segunda_dosis_cantidad':
+            sorted_df = df.sort_values('segunda_dosis_cantidad', ascending=False)
             fig = px.bar(
-                data_frame = df,
+                data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
-                y = 'segunda_dosis_cantidad')
+                y = 'segunda_dosis_cantidad',
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
     elif value == 'dosis_unica_cantidad':
+            sorted_df = df.sort_values('dosis_unica_cantidad', ascending=False)
             fig = px.bar(
-                data_frame = df,
+                data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
-                y = 'dosis_unica_cantidad')
+                y = 'dosis_unica_cantidad',
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
     return fig
 
 
