@@ -15,12 +15,12 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
 
-    html.Div([
-        html.H1('Vacundos por Covid'),
+    html.Div([  #Barra superior, titulo y banner
+        html.H1('Vacunados por Covid'),
         html.Img(src='assets/vacunas.jpg')
     ], className = 'banner'),
 
-    html.Div([
+    html.Div([  # cuadro de seleccion de dosis
         html.Div([
             html.P('Selecciona la dosis', className='fix_label', style={'color':'black', 'margin-top':'2px'}),
             dcc.RadioItems(id = 'dosis-radioitems',
@@ -34,7 +34,7 @@ app.layout = html.Div([
                 ], value = 'primera_dosis_cantidad',
                 style = {'text-aling' : 'center', 'color' : 'black'}, className='dcc_compon'),
         ], className='create_container2 five columns', style={'margin-bottom' : '20px'}),]
-        , className='row flex-display'),
+        , className='row flex-display', id="cuadroDosis"),
 
     html.Div([
         html.Div([

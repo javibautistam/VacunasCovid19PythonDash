@@ -538,6 +538,9 @@
     .container-display {
       display: flex;
     }
+    .cuadroDosis {
+      width: 100%;
+    }
   
   
     #title {
@@ -560,6 +563,9 @@
   
   /* Larger than desktop */
   @media (min-width: 1000px) {
+    .cuadroDosis {
+      width: 100%;
+    }
   }
   
   /* Larger than Desktop HD */

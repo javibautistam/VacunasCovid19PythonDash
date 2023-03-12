@@ -129,4 +129,6 @@ display: block;
     display: flex;
     flex-direction: row;
   }
-  
+  .cuadroDosis {
+    width: 100%;
+  }
