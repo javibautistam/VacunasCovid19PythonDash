@@ -33,7 +33,7 @@ app.layout = html.Div([
                     {'label' : 'Dosis única', 'value' : 'dosis_unica_cantidad'}
                 ], value = 'primera_dosis_cantidad',
                 style = {'text-aling' : 'center', 'color' : 'black'}, className='dcc_compon'),
-        ], className='create_container2 five columns', style={'margin-bottom' : '20px'}),]
+        ], className='create_container2 dosis_seleccion', style={'margin-bottom' : '20px'}),]
         , className='row flex-display', id="cuadroDosis"),
 
     html.Div([

@@ -529,7 +529,9 @@
       margin: 0 !important;
   
     }
-  
+    .dosis_seleccion{
+      width: 90%;
+    }
     .create_container1 {
       margin: 0 !important;
       margin-bottom: 25px !important;
@@ -538,10 +540,6 @@
     .container-display {
       display: flex;
     }
-    .cuadroDosis {
-      width: 100%;
-    }
-  
   
     #title {
       margin-bottom: 10px;
@@ -563,11 +561,14 @@
   
   /* Larger than desktop */
   @media (min-width: 1000px) {
-    .cuadroDosis {
-      width: 100%;
+    .dosis_seleccion{
+      width: 90%;
     }
   }
   
   /* Larger than Desktop HD */
   @media (min-width: 1200px) {
+    .dosis_seleccion{
+      width: 90%;
+    }
   }
