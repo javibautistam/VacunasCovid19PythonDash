@@ -60,35 +60,41 @@ def update_graph(value):
             data_frame = sorted_df,
             x = 'jurisdiccion_nombre',
             y = 'primera_dosis_cantidad',
-            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
+            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
+            labels={"jurisdiccion_nombre": "Provincia", "primera_dosis_cantidad":"Cantidad de primeras dosis"})
     elif value == 'dosis_adicional_cantidad':
         sorted_df = df.sort_values('dosis_adicional_cantidad', ascending=False)
         fig = px.bar(
             data_frame = sorted_df,
             x = 'jurisdiccion_nombre',
             y = 'dosis_adicional_cantidad',
-            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
+            category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
+            labels={"jurisdiccion_nombre": "Provincia", "dosis_adicional_cantidad":"Cantidad de dosis adicional"})
+        
     elif value == 'dosis_refuerzo_cantidad':
             sorted_df = df.sort_values('dosis_refuerzo_cantidad', ascending=False)
             fig = px.bar(
                 data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
                 y = 'dosis_refuerzo_cantidad',
-                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
+                labels={"jurisdiccion_nombre": "Provincia", "dosis_refuerzo_cantidad":"Cantidad de dosis refuerzo"})
     elif value == 'segunda_dosis_cantidad':
             sorted_df = df.sort_values('segunda_dosis_cantidad', ascending=False)
             fig = px.bar(
                 data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
                 y = 'segunda_dosis_cantidad',
-                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
+                labels={"jurisdiccion_nombre": "Provincia", "segunda_dosis_cantidad":"Cantidad de segunda dosis"})
     elif value == 'dosis_unica_cantidad':
             sorted_df = df.sort_values('dosis_unica_cantidad', ascending=False)
             fig = px.bar(
                 data_frame = sorted_df,
                 x = 'jurisdiccion_nombre',
                 y = 'dosis_unica_cantidad',
-                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()})
+                category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
+                labels={"jurisdiccion_nombre": "Provincia", "dosis_unica_cantidad":"Cantidad de dosis unica"})
     return fig
 
 
