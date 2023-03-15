@@ -43,9 +43,19 @@ app.layout = html.Div([
         ], className='create_container2 five columns'),
 
         ], className='row flex-display'),
+
+
+    html.Div([
+        html.Div([
+            dcc.Graph(id = 'pieVacunas', figure = {})
+        ], className='create_container2 five columns'),
+
+        # html.Div([
+        #     dcc.Graph( id = '', figure={})
+        # ], className='create_container2 five columns'),
+
+        ], className='row flex-display'),
 ], id='mainContainer', style={'display': 'flex', 'flex-direction' : 'column'})
-
-
 
 @app.callback(
     Output('my_graph', component_property='figure'),
@@ -120,7 +130,6 @@ def update_graph(value):
 )
 
 def update_graph_pie(value):
-
     if value == 'primera_dosis_cantidad':
         fig2 = px.pie(
             data_frame = df,
@@ -151,6 +160,65 @@ def update_graph_pie(value):
             values='dosis_unica_cantidad')
 
     return fig2
+
+@app.callback(
+    Output('pieVacunas', component_property='figure'),
+    [Input('dosis-radioitems', component_property='value')]
+)
+def update_PieVacunas(value):
+    totalArgentinos = 46044703
+
+    if value == 'primera_dosis_cantidad':
+        totalDosis = df["primera_dosis_cantidad"].sum()
+        sinDosis = totalArgentinos - totalDosis
+        valores = [totalDosis, sinDosis]
+        nombres = ['Total de Vacunados', 'Personas sin vacunar']
+        fig3 = px.pie(
+            values=valores,
+            names=nombres,
+            title='Distribución de primeras dosis por vacuna'
+)
+    elif value == 'segunda_dosis_cantidad':
+        totalDosis = df["segunda_dosis_cantidad"].sum()
+        sinDosis = totalArgentinos - totalDosis
+        valores = [totalDosis, sinDosis]
+        nombres = ['Total de Vacunados', 'Personas sin vacunar']
+        fig3 = px.pie(
+            values=valores,
+            names=nombres,
+            title='Distribución de primeras dosis por vacuna'
+        )
+    elif value == 'dosis_adicional_cantidad':
+        totalDosis = df["dosis_adicional_cantidad"].sum()
+        sinDosis = totalArgentinos - totalDosis
+        valores = [totalDosis, sinDosis]
+        nombres = ['Total de Vacunados', 'Personas sin vacunar']
+        fig3 = px.pie(
+            values=valores,
+            names=nombres,
+            title='Distribución de primeras dosis por vacuna'
+        )
+    elif value == 'dosis_refuerzo_cantidad':
+        totalDosis = df["dosis_refuerzo_cantidad"].sum()
+        sinDosis = totalArgentinos - totalDosis
+        valores = [totalDosis, sinDosis]
+        nombres = ['Total de Vacunados', 'Personas sin vacunar']
+        fig3 = px.pie(
+            values=valores,
+            names=nombres,
+            title='Distribución de primeras dosis por vacuna'
+        )
+    elif value == 'dosis_unica_cantidad':
+        totalDosis = df["dosis_unica_cantidad"].sum()
+        sinDosis = totalArgentinos - totalDosis
+        valores = [totalDosis, sinDosis]
+        nombres = ['Total de Vacunados', 'Personas sin vacunar']
+        fig3 = px.pie(
+            values=valores,
+            names=nombres,
+            title='Distribución de primeras dosis por vacuna'
+        )
+    return fig3
 
 if __name__ == ('__main__'):
     app.run_server(debug=True)
