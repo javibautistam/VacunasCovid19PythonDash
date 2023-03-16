@@ -7,6 +7,7 @@ from dash.dependencies import Input, Output
 
 
 df = pd.read_csv("Covid19VacunasAgrupadas.csv")
+df2 = df.groupby('vacuna_nombre')[['dosis_unica_cantidad', 'primera_dosis_cantidad', 'segunda_dosis_cantidad', 'dosis_adicional_cantidad', 'dosis_refuerzo_cantidad']].sum().reset_index()
 
 app = dash.Dash(__name__)
 
@@ -50,9 +51,9 @@ app.layout = html.Div([
             dcc.Graph(id = 'pieVacunas', figure = {})
         ], className='create_container2 five columns'),
 
-        # html.Div([
-        #     dcc.Graph( id = '', figure={})
-        # ], className='create_container2 five columns'),
+        html.Div([
+            dcc.Graph( id = 'pieNombreVacunas', figure={})
+        ], className='create_container2 eight columns'),
 
         ], className='row flex-display'),
 ], id='mainContainer', style={'display': 'flex', 'flex-direction' : 'column'})
@@ -161,6 +162,7 @@ def update_graph_pie(value):
 
     return fig2
 
+
 @app.callback(
     Output('pieVacunas', component_property='figure'),
     [Input('dosis-radioitems', component_property='value')]
@@ -220,6 +222,42 @@ def update_PieVacunas(value):
         )
     return fig3
 
+
+@app.callback(
+    Output('pieNombreVacunas', component_property='figure'),
+    [Input('dosis-radioitems', component_property='value')])
+def update_nombreVacunas(value):
+        if value == 'primera_dosis_cantidad':
+            fig4 = px.pie(
+                data_frame = df2,
+                names='vacuna_nombre',
+                values='primera_dosis_cantidad')
+
+        elif value == 'dosis_adicional_cantidad':
+            fig4 = px.pie(
+                data_frame = df2,
+                names='vacuna_nombre',
+                values='dosis_adicional_cantidad')
+
+        elif value == 'dosis_refuerzo_cantidad':
+            fig4 = px.pie(
+                data_frame = df2,
+                names='vacuna_nombre',
+                values='dosis_refuerzo_cantidad')
+
+        elif value == 'segunda_dosis_cantidad':
+            fig4 = px.pie(
+                data_frame = df2,
+                names='vacuna_nombre',
+                values='segunda_dosis_cantidad')
+        elif value == 'dosis_unica_cantidad':
+            fig4 = px.pie(
+                data_frame = df2,
+                names='vacuna_nombre',
+                values='dosis_unica_cantidad')
+
+        return fig4
+
+
 if __name__ == ('__main__'):
     app.run_server(debug=True)
-    #app.run_server(host='0.0.0.0', port=8050, debug=True)
