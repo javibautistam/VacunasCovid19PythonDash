@@ -6,6 +6,14 @@ Este proyecto consiste en un dashboard interactivo desarrollado en Python con el
 
 El dashboard permite visualizar la cantidad de personas que han recibido distintas dosis de la vacuna contra COVID-19. Además, se muestra la cantidad de dosis administradas por cada provincia.
 
+## Habilidades y herramientas utilizadas
+
+* Desarrollado en Python y Dash
+* Utiliza Pandas para el manejo de datos
+* Uso de CSS para el diseño y estilo del dashboard
+* Habilidad en el análisis y visualización de datos
+* Habilidad en el desarrollo de aplicaciones web interactivas.
+
 ## Requisitos
 
 - Python 3.x: puedes descargar Python desde la [página oficial](https://www.python.org/downloads/)
@@ -37,9 +45,11 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 
 ## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE.md para más detalles.
+Este proyecto está bajo la licencia MIT. Consulta el [archivo LICENSE.md](./LICENSE.md) para más detalles.
 
 ## Créditos
 Este proyecto ha sido desarrollado por Javier Bautista Murillo con los datos provistos por el Ministerio de Salud de la Nación.
+
+Para descargar el csv de vacunacion del la web del Ministerio: [Click aquí](http://datos.salud.gob.ar/dataset/vacunas-contra-covid-19-dosis-aplicadas-en-la-republica-argentina)
 
 
