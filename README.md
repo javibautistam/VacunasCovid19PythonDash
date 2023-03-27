@@ -11,7 +11,7 @@ El dashboard permite visualizar la cantidad de personas que han recibido distint
 - Python 3.x: puedes descargar Python desde la [página oficial](https://www.python.org/downloads/)
 - Paquetes de Python: para instalar los paquetes necesarios, ejecuta el siguiente comando en la terminal:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Uso
 
