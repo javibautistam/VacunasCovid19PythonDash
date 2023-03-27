@@ -6,9 +6,11 @@ Este proyecto consiste en un dashboard interactivo desarrollado en Python con el
 
 El dashboard permite visualizar la cantidad de personas que han recibido distintas dosis de la vacuna contra COVID-19. Además, se muestra la cantidad de dosis administradas por cada provincia.
 
-Aquí puedes ver una captura de pantalla del dashboard:
+Aquí puedes ver capturas de pantalla del dashboard:
 
 ![Captura de pantalla del dashboard](./pictures/captura_dashboard.jpg)
+
+![Captura de pantalla del dashboard](./pictures/captura_dashboard2.jpg)
 
 ## Habilidades y herramientas utilizadas
 
