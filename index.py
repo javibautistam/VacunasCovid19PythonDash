@@ -75,7 +75,8 @@ def update_graph(value):
             x = 'jurisdiccion_nombre',
             y = 'primera_dosis_cantidad',
             category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
-            labels={"jurisdiccion_nombre": "Provincia", "primera_dosis_cantidad":"Cantidad de primeras dosis"})
+            labels={"jurisdiccion_nombre": "Provincia", "primera_dosis_cantidad":"Cantidad de primeras dosis"},
+            title='Distribución de primeras dosis por Provincia')
     elif value == 'dosis_adicional_cantidad':
         # Sumar la cantidad acumulada por provincia
         sum_df = df.groupby('jurisdiccion_nombre')['dosis_adicional_cantidad'].sum().reset_index()
@@ -86,7 +87,8 @@ def update_graph(value):
             x = 'jurisdiccion_nombre',
             y = 'dosis_adicional_cantidad',
             category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
-            labels={"jurisdiccion_nombre": "Provincia", "dosis_adicional_cantidad":"Cantidad de dosis adicional"})
+            labels={"jurisdiccion_nombre": "Provincia", "dosis_adicional_cantidad":"Cantidad de dosis adicional"},
+            title='Distribución dosis adicional por Provincia')
         
     elif value == 'dosis_refuerzo_cantidad':
         # Sumar la cantidad acumulada por provincia
@@ -98,7 +100,8 @@ def update_graph(value):
             x = 'jurisdiccion_nombre',
             y = 'dosis_refuerzo_cantidad',
             category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
-            labels={"jurisdiccion_nombre": "Provincia", "dosis_refuerzo_cantidad":"Cantidad de dosis refuerzo"})
+            labels={"jurisdiccion_nombre": "Provincia", "dosis_refuerzo_cantidad":"Cantidad de dosis refuerzo"},
+            title='Distribución de dosis de refuerzo por Provincia')
     
     elif value == 'segunda_dosis_cantidad':
         # Sumar la cantidad acumulada por provincia
@@ -110,7 +113,8 @@ def update_graph(value):
             x = 'jurisdiccion_nombre',
             y = 'segunda_dosis_cantidad',
             category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
-            labels={"jurisdiccion_nombre": "Provincia", "segunda_dosis_cantidad":"Cantidad de segunda dosis"})
+            labels={"jurisdiccion_nombre": "Provincia", "segunda_dosis_cantidad":"Cantidad de segunda dosis"},
+            title='Distribución de segundas dosis por Provincia')
     elif value == 'dosis_unica_cantidad':
         # Sumar la cantidad acumulada por provincia
         sum_df = df.groupby('jurisdiccion_nombre')['dosis_unica_cantidad'].sum().reset_index()
@@ -121,7 +125,8 @@ def update_graph(value):
             x = 'jurisdiccion_nombre',
             y = 'dosis_unica_cantidad',
             category_orders={'jurisdiccion_nombre': sorted_df['jurisdiccion_nombre'].tolist()},
-            labels={"jurisdiccion_nombre": "Provincia", "dosis_unica_cantidad":"Cantidad de dosis unica"})
+            labels={"jurisdiccion_nombre": "Provincia", "dosis_unica_cantidad":"Cantidad de dosis unica"},
+            title='Distribución de dosis unica por Provincia')
     return fig
 
 
@@ -178,7 +183,7 @@ def update_PieVacunas(value):
         fig3 = px.pie(
             values=valores,
             names=nombres,
-            title='Distribución de primeras dosis por vacuna'
+            title='Distribución de primeras dosis por vacunados y no vacunados'
 )
     elif value == 'segunda_dosis_cantidad':
         totalDosis = df["segunda_dosis_cantidad"].sum()
@@ -188,7 +193,7 @@ def update_PieVacunas(value):
         fig3 = px.pie(
             values=valores,
             names=nombres,
-            title='Distribución de primeras dosis por vacuna'
+            title='Distribución de segundas dosis por vacunados y no vacunados'
         )
     elif value == 'dosis_adicional_cantidad':
         totalDosis = df["dosis_adicional_cantidad"].sum()
@@ -198,7 +203,7 @@ def update_PieVacunas(value):
         fig3 = px.pie(
             values=valores,
             names=nombres,
-            title='Distribución de primeras dosis por vacuna'
+            title='Distribución de dosis adicional por vacunados y no vacunados'
         )
     elif value == 'dosis_refuerzo_cantidad':
         totalDosis = df["dosis_refuerzo_cantidad"].sum()
@@ -208,7 +213,7 @@ def update_PieVacunas(value):
         fig3 = px.pie(
             values=valores,
             names=nombres,
-            title='Distribución de primeras dosis por vacuna'
+            title='Distribución de dosis de refuerzo por vacunados y no vacunados'
         )
     elif value == 'dosis_unica_cantidad':
         totalDosis = df["dosis_unica_cantidad"].sum()
@@ -218,7 +223,7 @@ def update_PieVacunas(value):
         fig3 = px.pie(
             values=valores,
             names=nombres,
-            title='Distribución de primeras dosis por vacuna'
+            title='Distribución de dosis unica por vacunados y no vacunados'
         )
     return fig3
 
@@ -231,30 +236,36 @@ def update_nombreVacunas(value):
             fig4 = px.pie(
                 data_frame = df2,
                 names='vacuna_nombre',
-                values='primera_dosis_cantidad')
+                values='primera_dosis_cantidad',
+                title='Distribución de primeras dosis por fabricante de vacunas')
 
         elif value == 'dosis_adicional_cantidad':
             fig4 = px.pie(
                 data_frame = df2,
                 names='vacuna_nombre',
-                values='dosis_adicional_cantidad')
+                values='dosis_adicional_cantidad',
+                title='Distribución de dosis adicional por fabricante de vacunas')
 
         elif value == 'dosis_refuerzo_cantidad':
             fig4 = px.pie(
                 data_frame = df2,
                 names='vacuna_nombre',
-                values='dosis_refuerzo_cantidad')
+                values='dosis_refuerzo_cantidad',
+                title='Distribución de dosis de refuerzo por fabricante de vacunas')
 
         elif value == 'segunda_dosis_cantidad':
             fig4 = px.pie(
                 data_frame = df2,
                 names='vacuna_nombre',
-                values='segunda_dosis_cantidad')
+                values='segunda_dosis_cantidad',
+                title='Distribución de segundas dosis por fabricante de vacunas')
+            
         elif value == 'dosis_unica_cantidad':
             fig4 = px.pie(
                 data_frame = df2,
                 names='vacuna_nombre',
-                values='dosis_unica_cantidad')
+                values='dosis_unica_cantidad',
+                title='Distribución de dosis unica por fabricante de vacunas')
 
         return fig4
 
